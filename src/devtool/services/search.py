@@ -1,8 +1,9 @@
 import fnmatch
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Iterator
 
 from devtool.utils.file_utils import safe_walk
+
 
 def search_files(folder_path: Path, pattern: str) -> Iterator[Path]:
     """

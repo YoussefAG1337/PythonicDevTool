@@ -1,8 +1,17 @@
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Iterator
 
 # Folders we almost never want to scan
-IGNORE_DIRS = {".venv", "venv", "env", ".git", "__pycache__", ".pytest_cache", ".ruff_cache"}
+IGNORE_DIRS = {
+    ".venv",
+    "venv",
+    "env",
+    ".git",
+    "__pycache__",
+    ".pytest_cache",
+    ".ruff_cache",
+}
+
 
 def safe_walk(folder_path: Path) -> Iterator[Path]:
     """

@@ -1,5 +1,7 @@
 import logging
+
 from rich.logging import RichHandler
+
 
 def setup_logger(verbose: bool = False) -> None:
     """
@@ -8,7 +10,7 @@ def setup_logger(verbose: bool = False) -> None:
     """
     # Define our log format (Rich handles the timestamps and colors automatically!)
     log_format = "%(message)s"
-    
+
     # Decide how noisy the app should be
     log_level = logging.DEBUG if verbose else logging.INFO
 
@@ -16,5 +18,5 @@ def setup_logger(verbose: bool = False) -> None:
         level=log_level,
         format=log_format,
         datefmt="[%X]",
-        handlers=[RichHandler(rich_tracebacks=True)]
+        handlers=[RichHandler(rich_tracebacks=True)],
     )

@@ -1,17 +1,20 @@
 import json
 import logging
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 # This resolves to C:\Users\YourName\.devtool_config.json on Windows, or ~/.devtool_config.json on Mac/Linux
 CONFIG_FILE = Path.home() / ".devtool_config.json"
 
+
 @dataclass
 class Config:
     """Holds all configurable settings for the application."""
+
     default_hash_algorithm: str = "sha256"
     theme: str = "dark"
     # We will add more settings here as we build new features!
+
 
 def load_config() -> Config:
     """Load configuration from disk, or return defaults if it doesn't exist."""
@@ -27,6 +30,7 @@ def load_config() -> Config:
     except Exception as e:
         logging.error(f"Failed to load config: {e}. Using defaults.")
         return Config()
+
 
 def save_config(config: Config) -> None:
     """Save the current configuration to disk."""

@@ -33,6 +33,7 @@ target-version = "py312"
 # I is for isort (sorts imports automatically).
 # UP is pyupgrade (modernizes python syntax).
 select = ["E", "F", "I", "UP"] 
+ignore = ["E501"]
 
 [tool.mypy]
 strict = true
